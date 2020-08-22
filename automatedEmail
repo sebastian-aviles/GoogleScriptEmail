@@ -60,11 +60,10 @@ function populateDocument(e){
   //Since everything we need to change is in the body, we need to get that
   var body = doc.getBody(); 
   
-  //Then we call all of our replaceText methods
+  //Call the replace text methods to input vehicle information in document
   body.replaceText('{{Make}}', make);  
   body.replaceText('{{Model}}', model); 
   body.replaceText('{{Tag}}', license);
-  
   body.replaceText('{{Expire}}', getExpirationDate(community, timestamp)); 
   
   //Lastly we save and close the document to persist our changes
@@ -75,8 +74,7 @@ function populateDocument(e){
   var body = 'Attached is your visitor pass \n\n\t\tThank You So Much For Using Miami Parking Enforcement.';
  // MailApp.sendEmail(email, 'Visitor Pass', body)
 
-  
-  // Send an email with two attachments: a file from Google Drive (as a PDF) and an HTML file.
+  // Send an email with two attachments: a file from Google Drive (as a PDF)
   var file = DriveApp.getFileById(copy.getId());
   MailApp.sendEmail( email , 'Visitor Pass',body , 
                     {
