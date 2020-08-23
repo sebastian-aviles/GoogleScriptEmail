@@ -47,11 +47,11 @@ function populateDocument(e){
   var phone = e.values[6];
   var email = e.values[7];
   //file is the template file, and you get it by ID
-  var file = DriveApp.getFileById('1DxWjo4pmPw-s1T3JX7RIn_7CapKT2Qjhrsus9aw9ukQ'); 
+  var file = DriveApp.getFileById('YOUR FILE ID'); 
   
   //We can make a copy of the template, name it, and optionally tell it what folder to live in
   //file.makeCopy will return a Google Drive file object
-  var folder = DriveApp.getFolderById('1oAIBd8sW4DDgrqDFzX_6yOAQY4_L_GdP')
+  var folder = DriveApp.getFolderById('YOUR FILE ID')
   var copy = file.makeCopy(fullname + '' + timestamp, folder); 
   
   //Once we've got the new file created, we need to open it as a document by using its ID
@@ -61,7 +61,7 @@ function populateDocument(e){
   var body = doc.getBody(); 
   
   //Call the replace text methods to input vehicle information in document
-  body.replaceText('{{Make}}', make);  
+  body.replaceText('{{Make}}', make);  //Replaces {{Make}} with the inputed make of the car
   body.replaceText('{{Model}}', model); 
   body.replaceText('{{Tag}}', license);
   body.replaceText('{{Expire}}', getExpirationDate(community, timestamp)); 
